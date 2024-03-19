@@ -1,0 +1,34 @@
+<?php
+
+namespace App\Console\Commands;
+
+use App\Models\Product;
+use Illuminate\Console\Command;
+
+class UpdateFeatured extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'products:update-featured {product}';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'change product featured';
+
+    /**
+     * Execute the console command.
+     *
+     * @param  \App\Support\DripEmailer  $drip
+     * @return mixed
+     */
+    public function handle(Product $product)
+    {
+        $product->send(Product::find($this->argument('user')));
+    }
+}

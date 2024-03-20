@@ -14,8 +14,8 @@
                           <div class="card-text my-3">
                               <p>{{ $product->description }}</p>
                           </div>
-                          <p>{{ $product->isbn }}</p>
-                          <p>{{ $product->price }}</p>
+                          <p>ISBN: {{ $product->isbn }}</p>
+                          <p>Price: {{ $product->price }} {{$currency}}</p>
                           {{-- mettere radio --}}
                         </div>
                     </div>

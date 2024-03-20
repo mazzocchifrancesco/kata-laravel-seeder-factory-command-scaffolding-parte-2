@@ -10,7 +10,8 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('products.index', compact('products'));
+        $currency = '€';
+        return view('products.index', compact('products', 'currency'));
     }
 
     public function show(Product $product)

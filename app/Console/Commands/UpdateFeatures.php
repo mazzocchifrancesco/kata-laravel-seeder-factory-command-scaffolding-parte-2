@@ -31,25 +31,20 @@ class UpdateFeatures extends Command
     {
         // creare ciclo per cambiare più prodotti
         $arrayId = $this->arguments()['productId'];
-        
-
-        foreach ($arrayId as $id){
-
-        $product = Product::where('id', $id);
-        if ($product->featured == 1){
-            $product->update(['featured' => 0]);
-
-        }else{
-            $product->update(['featured' => 1]);
-        }
-       
 
 
+        foreach ($arrayId as $id) {
 
+            $product = Product::where('id', $id)->first();
+            if ($product->featured == 1) {
+                $product->update(['featured' => 0]);
+            } else {
+                $product->update(['featured' => 1]);
+            }
         }
 
 
-        // //se un prodotto ha già featured 1 allora la metto a 0
+        //se un prodotto ha già featured 1 allora la metto a 0
 
         // $product = Product::where('id', $this->argument('productId'));
         // $product->update(['featured' => 1]);

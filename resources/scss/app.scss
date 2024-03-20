@@ -2,3 +2,12 @@
 @use "./partials/mixins" as *;
 
 @import "~bootstrap/scss/bootstrap";
+
+a{
+    text-decoration: none;
+}
+
+.card-text{
+    height: 100px;
+    overflow-y: auto;
+}

@@ -15,7 +15,14 @@
             <div class="col-8">
                 <div class="row flex-column">
                     <div class="col">
-                        <h1>{{$product->name}}</h1>
+                        <div class="row">
+                            <div class="col d-flex justify-content-between align-items-center">
+                                <h1>{{$product->name}}</h1>
+                                @if ($product->featured == 1)
+                                <span class="badge text-bg-success">Featured</span>
+                                @endif
+                            </div>
+                        </div>
                         <p>{{ $product->description }}</p>
                     </div>
                     <div class="col">

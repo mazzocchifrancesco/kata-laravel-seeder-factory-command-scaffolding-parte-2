@@ -9,6 +9,11 @@
         @vite(['resources/js/app.js'])
 </head>
 <body>
-    @yield('content')
+    <header class="sticky-top">
+        @include('partials.navbar')
+    </header>
+    <main>
+        @yield('content')
+    </main>
 </body>
 </html>

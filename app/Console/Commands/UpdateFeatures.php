@@ -12,7 +12,7 @@ class UpdateFeatures extends Command
      *
      * @var string
      */
-    protected $signature = 'products:update-featured {productId}';
+    protected $signature = 'products:update-featured {productId*}';
 
     /**
      * The console command description.
@@ -29,12 +29,30 @@ class UpdateFeatures extends Command
      */
     public function handle()
     {
-        //creare ciclo per cambiare più prodotti
+        // creare ciclo per cambiare più prodotti
+        $arrayId = $this->arguments()['productId'];
+        
 
-        //se un prodotto ha già featured 1 allora la metto a 0
+        foreach ($arrayId as $id){
 
-        $product = Product::where('id', $this->argument('productId'));
-        $product->update(['featured' => 1]);
+        $product = Product::where('id', $id);
+        if ($product->featured == 1){
+            $product->update(['featured' => 0]);
+
+        }else{
+            $product->update(['featured' => 1]);
+        }
+       
+
+
+
+        }
+
+
+        // //se un prodotto ha già featured 1 allora la metto a 0
+
+        // $product = Product::where('id', $this->argument('productId'));
+        // $product->update(['featured' => 1]);
 
 
         return Command::SUCCESS;
